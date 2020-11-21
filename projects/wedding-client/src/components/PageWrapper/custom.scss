@@ -1,0 +1,12 @@
+$theme-colors: (
+  "primary": rgb(40, 0, 0),
+  // "secondary":
+);
+
+$body-color: white;
+
+body {
+  font-family: Parisienne, serif !important;
+}
+
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";

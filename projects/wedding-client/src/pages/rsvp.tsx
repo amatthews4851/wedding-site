@@ -1,7 +1,8 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Alert from "react-bootstrap/Alert";
 import BlurView from "../components/BlurView";
 import PageWrapper from "../components/PageWrapper";
 import Button from "react-bootstrap/Button";
@@ -15,6 +16,23 @@ export default function RSVP() {
     plusOneLastName: "",
     showValidation: false,
   });
+
+  const [succeeded, setSucceeded] = useState(false);
+  const [errored, setErrored] = useState(false);
+
+  const handleSuccess = () => {
+    setSucceeded(true);
+    setTimeout(() => {
+      setSucceeded(false);
+    }, 10000);
+  };
+
+  const handleError = () => {
+    setErrored(true);
+    setTimeout(() => {
+      setErrored(false);
+    }, 10000);
+  };
 
   return (
     <PageWrapper>
@@ -36,7 +54,24 @@ export default function RSVP() {
                   return;
                 }
 
-                alert("SUCCESS");
+                fetch("/rsvp", {
+                  method: "POST",
+                  body: JSON.stringify({
+                    firstName: state.firstName,
+                    lastName: state.lastName,
+                    plusOneFirstName: state.plusOneFirstName,
+                    plusOneLastName: state.plusOneLastName,
+                  }),
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                })
+                  .then((res) => {
+                    res.ok ? handleSuccess() : handleError();
+                  })
+                  .catch(() => {
+                    handleError();
+                  });
               }}
             >
               <Form.Group>
@@ -142,6 +177,32 @@ export default function RSVP() {
           </div>
         </BlurView>
       </Container>
+      {/* <div
+        aria-live="polite"
+        aria-atomic="true"
+        style={{
+          position: "relative",
+          minHeight: "200px",
+        }}
+      > */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          right: 0,
+          margin: "1em",
+        }}
+      >
+        <Alert show={succeeded} variant="success">
+          <Alert.Heading>Success!</Alert.Heading>
+          <p>We will see you there 👍</p>
+        </Alert>
+        <Alert show={errored} variant="danger">
+          <Alert.Heading>An Error Occurred</Alert.Heading>
+          <p>Please try again</p>
+        </Alert>
+        {/* </div> */}
+      </div>
     </PageWrapper>
   );
 }

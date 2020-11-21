@@ -1,4 +1,5 @@
 import React from "react";
+import "./custom.scss";
 import NavBar from "react-bootstrap/NavBar";
 import { Link } from "gatsby";
 

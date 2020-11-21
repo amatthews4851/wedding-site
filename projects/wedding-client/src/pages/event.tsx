@@ -46,6 +46,9 @@ export default Event;
 
 // https://stackoverflow.com/a/9039885
 function isApple() {
+  if (typeof window === "undefined") {
+    return false;
+  }
   return (
     [
       "iPad Simulator",
@@ -54,6 +57,7 @@ function isApple() {
       "iPad",
       "iPhone",
       "iPod",
-    ].includes(navigator.platform) || navigator.userAgent.includes("Mac")
+    ].includes(window.navigator.platform) ||
+    window.navigator.userAgent.includes("Mac")
   );
 }

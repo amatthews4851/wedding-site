@@ -18,11 +18,13 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-sass": "^2.6.0",
     "node-sass": "^4.0.0",
+    "ramda": "^0.27.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@types/ramda": "^0.27.32",
     "prettier": "2.1.2"
   },
   "repository": {
