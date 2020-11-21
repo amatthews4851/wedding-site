@@ -4,7 +4,8 @@ import NavBar from "react-bootstrap/NavBar";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "gatsby";
-import PageWrapper from "./components/PageWrapper.tsx";
+import PageWrapper from "../components/PageWrapper";
+import BlurView from "../components/BlurView";
 
 export default function Home() {
   const [mounted, setIsMounted] = useState(false);
@@ -32,18 +33,7 @@ export default function Home() {
             transitionDelay: "1s",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              background: "rgba(0, 0, 0, 0.4)",
-              borderRadius: 5,
-              backdropFilter: "blur(4px)",
-              padding: "1em",
-            }}
-          >
+          <BlurView>
             <h1>Join Us</h1>
             <h4>October 30, 2021</h4>
             <h5 style={{ textAlign: "center" }}>For the union of</h5>
@@ -59,7 +49,7 @@ export default function Home() {
                 RSVP Now
               </Button>
             </Link>
-          </div>
+          </BlurView>
         </div>
       </Container>
     </PageWrapper>

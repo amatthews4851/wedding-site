@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "react-bootstrap/NavBar";
+import { Link } from "gatsby";
 
 const PageWrapper = ({
   children,
@@ -18,7 +19,9 @@ const PageWrapper = ({
       }}
     >
       <NavBar bg="primary" variant="dark">
-        <NavBar.Brand>❤️ Mr. & Mrs. Matthews</NavBar.Brand>
+        <Link to="/">
+          <NavBar.Brand>❤️ Mr. & Mrs. Matthews</NavBar.Brand>
+        </Link>
       </NavBar>
       {children}
     </div>
