@@ -20,7 +20,16 @@ const PageWrapper = ({
     >
       <NavBar bg="primary" variant="dark">
         <Link to="/">
-          <NavBar.Brand>❤️ Mr. & Mrs. Matthews</NavBar.Brand>
+          <NavBar.Brand>Mr. & Mrs. Matthews</NavBar.Brand>
+        </Link>
+        <div style={{ width: "1em" }} />
+
+        <Link to="/rsvp">
+          <NavBar.Text>RSVP</NavBar.Text>
+        </Link>
+        <div style={{ width: "1em" }} />
+        <Link to="/event">
+          <NavBar.Text>When & Where</NavBar.Text>
         </Link>
       </NavBar>
       {children}

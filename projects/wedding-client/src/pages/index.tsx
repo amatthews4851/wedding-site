@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./custom.scss";
-import NavBar from "react-bootstrap/NavBar";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "gatsby";
@@ -13,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setIsMounted(true);
-    }, 1000);
+    }, 100);
   }, []);
 
   return (
