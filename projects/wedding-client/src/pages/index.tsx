@@ -37,7 +37,7 @@ export default function Home() {
             <h5 style={{ textAlign: "center" }}>For the union of</h5>
             <h5>Mr. Russell Alexander Matthews &</h5>
             <h5>Ms. Darby LeeAnn Young</h5>
-            <br />
+            {/* <br />
             <Link to="/rsvp">
               <Button
                 variant="primary"
@@ -46,7 +46,7 @@ export default function Home() {
               >
                 RSVP Now
               </Button>
-            </Link>
+            </Link> */}
           </BlurView>
         </div>
       </Container>

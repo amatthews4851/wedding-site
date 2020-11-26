@@ -11,7 +11,7 @@ const PageWrapper = ({
   return (
     <div
       style={{
-        backgroundImage: 'url("/kiss2.jpeg")',
+        backgroundImage: 'url("/IMG_0002.jpeg")',
         height: "100vh",
         width: "100vw",
         backgroundPosition: "left center",
@@ -25,12 +25,18 @@ const PageWrapper = ({
         </Link>
         <div style={{ width: "1em" }} />
 
-        <Link to="/rsvp">
+        {/* <Link to="/rsvp">
           <NavBar.Text>RSVP</NavBar.Text>
         </Link>
-        <div style={{ width: "1em" }} />
+        <div style={{ width: "1em" }} /> */}
         <Link to="/event">
           <NavBar.Text>When & Where</NavBar.Text>
+        </Link>
+
+        <div style={{ width: "1em" }} />
+
+        <Link to="/photos">
+          <NavBar.Text>Photos</NavBar.Text>
         </Link>
       </NavBar>
       {children}
