@@ -15,11 +15,12 @@ export default function Home() {
   }, []);
 
   return (
-    <PageWrapper>
+    <PageWrapper hasImage>
       <Container
         style={{
           paddingTop: "5rem",
-          maxWidth: 500,
+          maxWidth: 600,
+          fontFamily: "Parisienne, serif",
         }}
       >
         <div
@@ -37,16 +38,6 @@ export default function Home() {
             <h5 style={{ textAlign: "center" }}>For the union of</h5>
             <h5>Mr. Russell Alexander Matthews &</h5>
             <h5>Ms. Darby LeeAnn Young</h5>
-            {/* <br />
-            <Link to="/rsvp">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{ fontFamily: "serif" }}
-              >
-                RSVP Now
-              </Button>
-            </Link> */}
           </BlurView>
         </div>
       </Container>

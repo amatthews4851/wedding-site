@@ -65,40 +65,38 @@ const Photos = () => {
           height: "calc(100% - 56px)",
         }}
       >
-        <BlurView style={{ height: "100%" }}>
+        <div
+          style={{
+            overflowY: "scroll",
+            height: "100%",
+          }}
+        >
           <div
             style={{
-              overflowY: "scroll",
-              height: "100%",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                flexWrap: "wrap",
-              }}
-            >
-              {useMemo(
-                () =>
-                  urls.map((url, index) => (
-                    <img
-                      onClick={() => setActivePhotoUrlIndex(index)}
-                      src={url}
-                      style={{
-                        width: 128,
-                        height: 128,
-                        objectFit: "cover",
-                      }}
-                    />
-                  )),
-                []
-              )}
-            </div>
+            {useMemo(
+              () =>
+                urls.map((url, index) => (
+                  <img
+                    onClick={() => setActivePhotoUrlIndex(index)}
+                    src={url}
+                    style={{
+                      width: 128,
+                      height: 128,
+                      objectFit: "cover",
+                    }}
+                  />
+                )),
+              []
+            )}
           </div>
-        </BlurView>
+        </div>
       </Container>
       <Modal
         show={activePhotoUrlIndex !== null}
