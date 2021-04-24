@@ -14,7 +14,7 @@ const PageWrapper = ({
   const [menuIsOpen, setMenuIsOpen] = React.useState(false);
   const { width } = useWindowDimensions();
 
-  const isSmall = width < 600;
+  const isSmall = width > 0 && width < 600;
 
   return (
     <div
