@@ -1,11 +1,14 @@
 import express from "express";
-import bodyParser from "body-parser";
+import * as path from "path";
 
 const app = express();
 const port = 3000;
 
-app.use(express.static("../wedding-client/public"));
-app.use(bodyParser.json());
+app.use(express.static(path.resolve(__dirname, "../wedding-client/build")));
+
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(__dirname, "../wedding-client/build/index.html"));
+});
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
