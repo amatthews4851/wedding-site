@@ -44,7 +44,7 @@ const AppHeader = () => {
         </>
       )}
       <div
-        className="absolute h-screen right-0 top-0 btm-0 bg-primary flex flex-col"
+        className="absolute h-screen right-0 top-0 btm-0 bg-primary flex flex-col z-30"
         style={{
           width: "15rem",
           transform: `translate(${menuIsOpen ? 0 : 15}rem, 0px)`,

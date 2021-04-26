@@ -23,24 +23,14 @@ const HomePage = () => {
         overflowY: "hidden",
       }}
     >
-      <div
-        className="text-xl"
-        style={{
-          opacity: mounted ? 1 : 0,
-          transform: `translate(0px, ${mounted ? 0 : 25}px)`,
-          transitionDuration: "1s",
-          transitionTimingFunction: "ease-out",
-          transitionDelay: "1s",
-          maxWidth: 600,
-        }}
-      >
-        <BlurView>
+      <div className="text-xl max-w-xl">
+        <div className="bg-white text-black text-center rounded-xl p-4 shadow-lg border border-black">
           <h1>Join Us</h1>
           <h4>October 30, 2021</h4>
           <h5 style={{ textAlign: "center" }}>For the union of</h5>
           <h5>Mr. Russell Alexander Matthews &</h5>
           <h5>Ms. Darby LeeAnn Young</h5>
-        </BlurView>
+        </div>
       </div>
     </div>
   );

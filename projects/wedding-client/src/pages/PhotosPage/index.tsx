@@ -87,8 +87,6 @@ const PhotosPage = () => {
             overflow: "hidden",
             backgroundColor: "rgb(242, 242, 242)",
             borderColor: "black",
-            inset: "auto",
-            margin: "2rem",
             maxHeight: "calc(100% - 4rem)",
             width: "calc(100% - 4rem)",
           },
