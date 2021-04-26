@@ -9,13 +9,7 @@ const OutOfTownPage = () => {
       <div className="max-w-xl mx-auto">
         <h2 className="text-2xl mb-4">What To Do In Town?</h2>
         <p className="mb-4">There are a few things we like to do in town.</p>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-          }}
-        >
+        <div className="flex flex-row justify-start">
           <Image
             width={250}
             height={100}
@@ -33,13 +27,7 @@ const OutOfTownPage = () => {
             aquariums in the country.
           </p>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-          }}
-        >
+        <div className="flex flex-row justify-start">
           <p className="mb-4">
             If you are looking to do some shopping, theres no better place in
             Springfield than the{" "}
@@ -68,18 +56,23 @@ const OutOfTownPage = () => {
           <MapLink query="Cheddar's Scratch Kitchen, East Primrose Street, Springfield, MO">
             Cheddar's
           </MapLink>{" "}
-          for some eat, cheap comfort food cooking.{" "}
+          for some cheap, comfort food cooking.{" "}
           <MapLink query="Great American Taco Company, E Battlefield Rd, Springfield, MO">
             Great American Taco
           </MapLink>{" "}
           is great spot to find some gourmet tacos and quesadillas, and also
           happens to be where we had our first date. If you are looking for some
-          hibachi grilling,{" "}
+          more formal, entertaining restaurants,{" "}
           <MapLink query="Hinode Japanese Steakhouse and Sushi, South National Avenue, Springfield, MO">
             Hinode Hibachi Grill
           </MapLink>{" "}
-          is a great spot to find it. There are a few options for some good
-          burgers, but some of our favorites are{" "}
+          is a great spot to find it. If steak or other country food is your
+          fancy,{" "}
+          <MapLink query="Texas Roadhouse Springfield, MO">
+            Texas Roadhouse
+          </MapLink>{" "}
+          is our go-to. There are a few options for some good burgers, but some
+          of our favorites are{" "}
           <MapLink query="Black Sheep Burgers and Shakes">Black Sheep</MapLink>{" "}
           and{" "}
           <MapLink query="BAIR'S All-American Sports Grill">
@@ -87,15 +80,21 @@ const OutOfTownPage = () => {
           </MapLink>
           .
         </p>
+        <p>
+          Of course if you still can't find anything to eat, I have made an app
+          for the App Store designed to help a group of people find something to
+          eat in the area. It's called{" "}
+          <a
+            className="underline"
+            href="https://apps.apple.com/us/app/what-we-having/id1557148763"
+          >
+            What We Having
+          </a>
+          , and its free to download and use.
+        </p>
 
         <h2 className="text-2xl mb-4">Where Should I Stay?</h2>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-          }}
-        >
+        <div className="flex flex-row justify-start">
           <Image
             width={250}
             height={100}
@@ -109,22 +108,17 @@ const OutOfTownPage = () => {
             <MapLink query="Courtyard by Marriott Springfield Airport">
               Courtyard Hotel by the Springfield Airport
             </MapLink>
-            , which is nearby the venue.
+            , which is the closest hotel in Springfield to the venue.
           </p>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-          }}
-        >
+        <div className="flex flex-row justify-start">
           <p className="mb-4">
             The other we would recommend would be{" "}
             <MapLink query="Fairfield Inn & Suites by Marriott Springfield North">
               Fairfield Inn & Suites Hotel
             </MapLink>
-            , which is just a nice hotel up by I-44 and Highway 65.
+            , which is just a nice hotel up by I-44 and Highway 65, and is close
+            to a lot of other restaurants.
           </p>
 
           <Image
