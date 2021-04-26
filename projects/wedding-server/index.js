@@ -1,53 +1,34 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var body_parser_1 = __importDefault(require("body-parser"));
-var sqlite3_1 = __importDefault(require("sqlite3"));
-var db = new sqlite3_1.default.Database("./rsvps.db");
-db.run("CREATE TABLE IF NOT EXISTS rsvps (\n\tfirstName TEXT NOT NULL,\n\tlastName TEXT NOT NULL\n);");
+var path = __importStar(require("path"));
 var app = express_1.default();
 var port = 3000;
-app.use(express_1.default.static("../wedding-client/public"));
-app.use(body_parser_1.default.json());
-app.post("/rsvp", function (req, res) {
-    var body = req.body;
-    if (!body.firstName ||
-        !body.lastName ||
-        (body.plusOneFirstName && !body.plusOneLastName) ||
-        (!body.plusOneFirstName && body.plusOneLastName)) {
-        res.status(422);
-        res.send({
-            error: "Invalid Body",
-        });
-        return;
-    }
-    try {
-        db.run("INSERT INTO rsvps(firstName, lastName) VALUES ($firstName, $lastName)", {
-            $firstName: body.firstName,
-            $lastName: body.lastName,
-        });
-        if (body.plusOneFirstName) {
-            db.run("INSERT INTO rsvps(firstName, lastName) VALUES ($firstName, $lastName)", {
-                $firstName: body.plusOneFirstName,
-                $lastName: body.plusOneLastName,
-            });
-        }
-        res.sendStatus(204);
-    }
-    catch (_a) {
-        res.sendStatus(500);
-    }
-});
-app.get("/all_rsvps", function (_, res) {
-    db.all("SELECT * from rsvps", function (err, rows) {
-        if (err) {
-            res.sendStatus(500);
-        }
-        res.send(rows);
-    });
+app.use(express_1.default.static(path.resolve(__dirname, "../wedding-client/build")));
+app.get("*", function (_, res) {
+    res.sendFile(path.resolve(__dirname, "../wedding-client/build/index.html"));
 });
 app.listen(port, function () {
     console.log("App listening at http://localhost:" + port);
