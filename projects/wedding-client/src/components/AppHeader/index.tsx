@@ -12,7 +12,7 @@ const AppHeader = () => {
   const location = useLocation();
   return (
     <div
-      className="bg-red-900 border-b border-white bg-primary flex flex-row items-center py-2 px-4 sticky left-0 right-0 top-0"
+      className="border-b border-white bg-primary flex flex-row items-center py-2 px-4 sticky left-0 right-0 top-0"
       style={{
         fontFamily: "'Parisienne', cursive",
         justifyContent: isSmall ? "space-between" : "flex-start",
@@ -39,6 +39,7 @@ const AppHeader = () => {
       ) : (
         <>
           <SubLink to={Routes.Event}>Event</SubLink>
+          <SubLink to={Routes.Registry}>Registry</SubLink>
           <SubLink to={Routes.Photos}>Photos</SubLink>
           <SubLink to={Routes.OutOfTown}>Out Of Town</SubLink>
         </>
@@ -77,21 +78,27 @@ const AppHeader = () => {
             />
           </svg>
         </div>
-        <Link to="/event">
-          <div className="border-b border-white w-full pl-4 py-4 text-xl">
-            When & Where
-          </div>
-        </Link>
-        <Link to="/photos">
-          <div className="border-b border-white w-full pl-4 py-4 text-xl">
-            Photos
-          </div>
-        </Link>
-        <Link to="/out-of-town">
-          <div className="border-b border-white w-full pl-4 py-4 text-xl">
-            Out Of Town
-          </div>
-        </Link>
+        <MobileSubLink to={Routes.Event} closeMenu={() => setMenuIsOpen(false)}>
+          When & Where
+        </MobileSubLink>
+        <MobileSubLink
+          to={Routes.Registry}
+          closeMenu={() => setMenuIsOpen(false)}
+        >
+          Registry
+        </MobileSubLink>
+        <MobileSubLink
+          to={Routes.Photos}
+          closeMenu={() => setMenuIsOpen(false)}
+        >
+          Photos
+        </MobileSubLink>
+        <MobileSubLink
+          to={Routes.OutOfTown}
+          closeMenu={() => setMenuIsOpen(false)}
+        >
+          Out Of Town
+        </MobileSubLink>
       </div>
     </div>
   );
@@ -108,5 +115,26 @@ function SubLink({ to, children }: { to: Routes; children: React.ReactNode }) {
     >
       <Link to={to}>{children}</Link>
     </div>
+  );
+}
+
+function MobileSubLink({
+  to,
+  children,
+  closeMenu,
+}: {
+  to: Routes;
+  children: React.ReactNode;
+  closeMenu: () => void;
+}) {
+  return (
+    <Link to={to}>
+      <div
+        onClick={closeMenu}
+        className="border-b border-white w-full pl-4 py-4 text-xl"
+      >
+        {children}
+      </div>
+    </Link>
   );
 }
