@@ -12,7 +12,7 @@ const AppHeader = () => {
   const location = useLocation();
   return (
     <div
-      className="border-b border-white bg-primary flex flex-row items-center py-2 px-4 sticky left-0 right-0 top-0"
+      className="border-b border-white bg-primary flex flex-row items-center py-2 px-4 fixed left-0 right-0 top-0 z-10"
       style={{
         fontFamily: "'Parisienne', cursive",
         justifyContent: isSmall ? "space-between" : "flex-start",
